@@ -3,16 +3,17 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class SlideShow {
-    private LinkedList<Image> sortedH;
-    private LinkedList<Image> sortedV;
 
 
     public SlideShow() throws FileNotFoundException {
+        List<Image> L_reversed= loadInput();
+        L_reversed.sort(Comparator.comparing(Image::getNumOfTags).reversed());
+
     }
 
 
 
-    Collections.sort(images, )
+
 
     private static List<Image> loadInput() throws FileNotFoundException {
         Scanner reader = new Scanner(new File("a_example.txt"));
