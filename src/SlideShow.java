@@ -3,10 +3,14 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class SlideShow {
+    public static void main(String args[]) throws FileNotFoundException {
+        SlideShow S = new SlideShow();
+
+    }
 
 
     public SlideShow() throws FileNotFoundException {
-        List<Image> L_reversed= loadInput();
+        List<Image> L_reversed = loadInput();
         List<Image> H_descending = sortH(L_reversed);
         List<Image> V_descending = sortV(L_reversed);
         L_reversed.sort(Comparator.comparing(Image::getNumOfTags).reversed());
@@ -14,32 +18,25 @@ public class SlideShow {
 
     }
 
-    private static List<Image> sortV(List<Image> L)
-    {
+    private static List<Image> sortV(List<Image> L) {
         List<Image> result = new ArrayList<>();
-        for(int i = 0; i < L.size(); i++)
-        {
-            if(L.get(i).isVertical())
-            {
-                result.add(L.get(i));
-            }
-        }
-        return result;
-    }
-    private static List<Image> sortH(List<Image> L)
-    {
-        List<Image> result = new ArrayList<>();
-        for(int i = 0; i < L.size(); i++)
-        {
-            if(!L.get(i).isVertical())
-            {
+        for (int i = 0; i < L.size(); i++) {
+            if (L.get(i).isVertical()) {
                 result.add(L.get(i));
             }
         }
         return result;
     }
 
-
+    private static List<Image> sortH(List<Image> L) {
+        List<Image> result = new ArrayList<>();
+        for (int i = 0; i < L.size(); i++) {
+            if (!L.get(i).isVertical()) {
+                result.add(L.get(i));
+            }
+        }
+        return result;
+    }
 
 
     private static List<Image> loadInput() throws FileNotFoundException {
@@ -56,9 +53,9 @@ public class SlideShow {
                 isVertical = false;
             }
             int numOfTags = reader.nextInt();
-            String[] tags_i = new String[numOfTags];
+            List<String> tags_i = new ArrayList<>();
             for (int k = 0; k < numOfTags; k++) {
-                tags_i[i] = reader.next();
+                tags_i.add(i,reader.next());
             }
             Image tmp = new Image(isVertical, tags_i, numOfTags, i);
             images.add(tmp);
@@ -66,6 +63,8 @@ public class SlideShow {
 
         return images;
 
+    }
+    private static
 }
 
 
