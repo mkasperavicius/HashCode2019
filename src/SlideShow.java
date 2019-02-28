@@ -3,18 +3,26 @@ import java.lang.*;
 import java.util.*;
 
 public class SlideShow {
-    private static int numberOfSlides
+    private static int numberOfSlides = 0;
+    List<Image> L_reversed;
+    List<Image> H_descending;
+    List<Image> V_descending;
+    List<Slide> slides;
     public static void main(String args[]) throws FileNotFoundException {
         SlideShow S = new SlideShow();
-        numberOfSlides = 0;
+        S.numberOfSlides = S.H_descending.size();
+        for(int i = 0; i < numberOfSlides; i++){
+            S.slides.add(H_descending.get(i));
+        }
+        outputSlideShow(S.slides);
     }
 
 
     public SlideShow() throws FileNotFoundException {
 
-        List<Image> L_reversed = loadInput();
-        List<Image> H_descending = sortH(L_reversed);
-        List<Image> V_descending = sortV(L_reversed);
+        L_reversed = loadInput();
+        H_descending = sortH(L_reversed);
+        V_descending = sortV(L_reversed);
         L_reversed.sort(Comparator.comparing(Image::getNumOfTags).reversed());
 
 
