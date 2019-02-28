@@ -65,6 +65,11 @@ public class SlideShow {
 
     }
     private static
+
+    public int minScore(Slide L, Slide R){
+        List<String> common = new ArrayList<>();
+
+    }
 }
 
 
