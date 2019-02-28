@@ -11,6 +11,7 @@ public class Image {
     }
 
     public int getNumOfTags(){return numOfTags;}
+    public boolean isVertical(){return isVertical;}
 
 
 }

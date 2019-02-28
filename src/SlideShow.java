@@ -7,10 +7,37 @@ public class SlideShow {
 
     public SlideShow() throws FileNotFoundException {
         List<Image> L_reversed= loadInput();
+        List<Image> H_descending = sortH(L_reversed);
+        List<Image> V_descending = sortV(L_reversed);
         L_reversed.sort(Comparator.comparing(Image::getNumOfTags).reversed());
+
 
     }
 
+    private static List<Image> sortV(List<Image> L)
+    {
+        List<Image> result = new ArrayList<>();
+        for(int i = 0; i < L.size(); i++)
+        {
+            if(L.get(i).isVertical())
+            {
+                result.add(L.get(i));
+            }
+        }
+        return result;
+    }
+    private static List<Image> sortH(List<Image> L)
+    {
+        List<Image> result = new ArrayList<>();
+        for(int i = 0; i < L.size(); i++)
+        {
+            if(!L.get(i).isVertical())
+            {
+                result.add(L.get(i));
+            }
+        }
+        return result;
+    }
 
 
 
