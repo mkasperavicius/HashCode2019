@@ -3,16 +3,16 @@ import java.lang.*;
 import java.util.*;
 
 public class SlideShow {
-    private static int numberOfSlides = 0;
+    private static int numberOfSlides;
     List<Image> L_reversed;
     List<Image> H_descending;
     List<Image> V_descending;
-    List<Slide> slides;
-    public static void main(String args[]) throws FileNotFoundException {
+    List<Slide> slides = new ArrayList<>();
+    public static void main(String args[]) throws IOException {
         SlideShow S = new SlideShow();
         S.numberOfSlides = S.H_descending.size();
         for(int i = 0; i < numberOfSlides; i++){
-            S.slides.add(H_descending.get(i));
+            S.slides.add(new Slide(S.H_descending.get(i), false));
         }
         outputSlideShow(S.slides);
     }
