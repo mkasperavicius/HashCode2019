@@ -66,6 +66,18 @@ public class SlideShow {
         return images;
 
     }
+    public static List <Image> mergeVertical (List <Image> verticalList ) {
+    	List <Image> newList = new ArrayList<> ();
+
+    	Slide slide;
+
+    	for (int i = 0; i<=verticalList.size(); i++) {
+        	slide =  new Slide (verticalList.get(i), true);
+
+        	slide.ta
+    	}
+    	return newList;
+    }
 
     private static void outputSlideShow(List<Slide> L) throws IOException {
         File Output = new File("Output");
