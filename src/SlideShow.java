@@ -1,8 +1,9 @@
 import java.io.*;
+import java.lang.*;
 import java.util.*;
 
 public class SlideShow {
-    private static int numberOfSlides
+    private static int numberOfSlides;
     public static void main(String args[]) throws FileNotFoundException {
         SlideShow S = new SlideShow();
         numberOfSlides = 0;
@@ -65,11 +66,12 @@ public class SlideShow {
         return images;
 
     }
+
     public static List <Slide> mergeVertical (List <Image> verticalList ) {
     	List <Slide> slides  = new ArrayList <>();
     	
-    	Slide slide;
-    	
+   	Slide slide;
+
     	for (int i = 0; i<=verticalList.size(); i++) {
         	slide =  new Slide (verticalList.get(i), true);
     		 
@@ -96,7 +98,7 @@ public class SlideShow {
     	}
     	return slides; 
     }
-    
+
     private static void outputSlideShow(List<Slide> L) throws IOException {
         File Output = new File("Output");
         BufferedWriter out = new BufferedWriter(new FileWriter(Output));
@@ -114,11 +116,15 @@ public class SlideShow {
 
     public int minScore(Slide L, Slide R){
         List<String> common = new ArrayList<>();
-        int sz = (L.getNumTags() < R.getNumTags())? R.getNumTags() : L.getNumTags();
+        int sz = (L.getNumTags() < R.getNumTags())? L.getNumTags() : R.getNumTags();
 
-        for(int i = 0; i< sz = (L.size))
+        for(int i = 0; i< sz ; i++){
+            if(R.Tags.contains(L.Tags.get(i))) common.add(L.Tags.get(i));
+        }
+        int min = (Math.abs(L.getNumTags()-common.size()) < Math.abs(R.getNumTags()))? Math.abs(L.getNumTags()-common.size()) : Math.abs(R.getNumTags()-common.size());
+        min = (min < common.size())? min : common.size();
 
-
+        return min;
     }
 }
 
