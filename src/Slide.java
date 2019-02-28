@@ -1,7 +1,9 @@
+import java.util.List;
+
 public class Slide {
     Boolean isV_;
     Image[] images;
-    private List<String> Tags;
+    List<String> Tags;
 
     Slide(Image image, Boolean isV){
         this.isV = isV;
