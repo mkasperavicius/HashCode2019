@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 public class SlideShow {
@@ -64,7 +63,14 @@ public class SlideShow {
         return images;
 
     }
-    private static
+    private static void outputSlideShow(List<Slide> L) throws IOException {
+        File Output = new File("Output");
+        BufferedWriter out = new BufferedWriter(new FileWriter(Output));
+        out.write( );
+
+
+
+    }
 
     public int minScore(Slide L, Slide R){
         List<String> common = new ArrayList<>();
