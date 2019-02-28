@@ -65,7 +65,6 @@ public class SlideShow {
         return images;
 
     }
-<<<<<<< HEAD
     public static List <Image> mergeVertical (List <Image> verticalList ) {
     	List <Image> newList = new ArrayList<> (); 
     	
@@ -79,7 +78,6 @@ public class SlideShow {
     	return newList; 
     }
     
-=======
     private static void outputSlideShow(List<Slide> L) throws IOException {
         File Output = new File("Output");
         BufferedWriter out = new BufferedWriter(new FileWriter(Output));
@@ -94,10 +92,13 @@ public class SlideShow {
         out.newLine();
         out.close();
     }
->>>>>>> 18e9e4a153a709c60987dee778545c8660721b4d
 
     public int minScore(Slide L, Slide R){
         List<String> common = new ArrayList<>();
+        int sz = (L.getNumTags() < R.getNumTags())? R.getNumTags() : L.getNumTags();
+
+        for(int i = 0; i< sz = (L.size))
+
 
     }
 }

@@ -1,6 +1,7 @@
 public class Slide {
-    Boolean isV;
+    Boolean isV_;
     Image[] images;
+    private List<String> Tags;
 
     Slide(Image image, Boolean isV){
         this.isV = isV;
@@ -12,5 +13,9 @@ public class Slide {
             images = new Image[2];
             images[0] = image;
         }
+    }
+
+    private int getNumTags(){
+        return Tags.size();
     }
 }
