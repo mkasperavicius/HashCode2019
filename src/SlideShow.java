@@ -1,4 +1,5 @@
 import java.io.*;
+import java.lang.*;
 import java.util.*;
 
 public class SlideShow {
@@ -65,6 +66,7 @@ public class SlideShow {
         return images;
 
     }
+
     private static void outputSlideShow(List<Slide> L) throws IOException {
         File Output = new File("Output");
         BufferedWriter out = new BufferedWriter(new FileWriter(Output));
@@ -82,11 +84,15 @@ public class SlideShow {
 
     public int minScore(Slide L, Slide R){
         List<String> common = new ArrayList<>();
-        int sz = (L.getNumTags() < R.getNumTags())? R.getNumTags() : L.getNumTags();
+        int sz = (L.getNumTags() < R.getNumTags())? L.getNumTags() : R.getNumTags();
 
-        for(int i = 0; i< sz = (L.size))
+        for(int i = 0; i< sz ; i++){
+            if(R.Tags.contains(L.Tags.get(i))) common.add(L.Tags.get(i));
+        }
+        int min = (Math.abs(L.getNumTags()-common.size()) < Math.abs(R.getNumTags()))? Math.abs(L.getNumTags()-common.size()) : Math.abs(R.getNumTags()-common.size());
+        int min = (min < common.size())? min : common.size();
 
-
+        return min;
     }
 }
 
