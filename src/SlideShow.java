@@ -1,15 +1,16 @@
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.*;
 
 public class SlideShow {
+    private static int numberOfSlides
     public static void main(String args[]) throws FileNotFoundException {
         SlideShow S = new SlideShow();
-
+        numberOfSlides = 0;
     }
 
 
     public SlideShow() throws FileNotFoundException {
+
         List<Image> L_reversed = loadInput();
         List<Image> H_descending = sortH(L_reversed);
         List<Image> V_descending = sortV(L_reversed);
@@ -64,7 +65,20 @@ public class SlideShow {
         return images;
 
     }
-    private static
+    private static void outputSlideShow(List<Slide> L) throws IOException {
+        File Output = new File("Output");
+        BufferedWriter out = new BufferedWriter(new FileWriter(Output));
+        out.write(numberOfSlides);
+        out.newLine();
+        for(int i = 0; i < L.size(); i++)
+        {
+            for(int k = 0; k < L.get(i).images.length; k++)
+            out.write(L.get(i).images[k].index);
+            out.write(" ");
+        }
+        out.newLine();
+        out.close();
+    }
 
     public int minScore(Slide L, Slide R){
         List<String> common = new ArrayList<>();
