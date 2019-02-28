@@ -68,6 +68,10 @@ public class SlideShow {
 
     public int minScore(Slide L, Slide R){
         List<String> common = new ArrayList<>();
+        int sz = (L.getNumTags() < R.getNumTags())? R.getNumTags() : L.getNumTags();
+
+        for(int i = 0; i< sz = (L.size))
+
 
     }
 }
