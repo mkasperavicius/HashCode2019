@@ -74,17 +74,37 @@ public class SlideShow {
         return images;
 
     }
-    public static List <Image> mergeVertical (List <Image> verticalList ) {
-    	List <Image> newList = new ArrayList<> ();
 
-    	Slide slide;
+    public static List <Slide> mergeVertical (List <Image> verticalList ) {
+    	List <Slide> slides  = new ArrayList <>();
+
+   	Slide slide;
 
     	for (int i = 0; i<=verticalList.size(); i++) {
         	slide =  new Slide (verticalList.get(i), true);
 
-        	slide.ta
+        	slide.images[i]=verticalList.get(verticalList.size() - i);
+
+        	int sz=slide.images[0].numOfTags;
+
+        	if (slide.images[0].numOfTags<slide.images[1].numOfTags)
+        		sz = slide.images[1].numOfTags; //greater
+
+        		for (int l=0; l<=slide.images[0].numOfTags;l++) {
+        			slide.Tags.add(slide.images[0].Tags.get(l));
+        		}
+
+        		for (int l=0; l<=slide.images[1].numOfTags;l++) {
+
+        		if (!slide.Tags.contains(slide.images[1].Tags.get(l)))
+        			slide.Tags.add(slide.images[0].Tags.get(l));
+        		}
+
+        	slides.add(slide);
+
+
     	}
-    	return newList;
+    	return slides;
     }
 
     private static void outputSlideShow(List<Slide> L) throws IOException {
@@ -110,7 +130,7 @@ public class SlideShow {
             if(R.Tags.contains(L.Tags.get(i))) common.add(L.Tags.get(i));
         }
         int min = (Math.abs(L.getNumTags()-common.size()) < Math.abs(R.getNumTags()))? Math.abs(L.getNumTags()-common.size()) : Math.abs(R.getNumTags()-common.size());
-        int min = (min < common.size())? min : common.size();
+        min = (min < common.size())? min : common.size();
 
         return min;
     }
